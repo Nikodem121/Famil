@@ -1,0 +1,13 @@
+[
+	{
+		"text": "Kto zjadl obiad?",
+		"answers": [
+			{"text" : "Pies", "points": 28},
+			{"text" : "Kot", "points": 27},
+			{"text" : "Slon", "points": 25},
+			{"text" : "Zyrafa", "points": 6},
+			{"text" : "Mastodont", "points": -9},
+			{"text" : "Surgoatka", "points": 0}
+		]
+	}
+]
