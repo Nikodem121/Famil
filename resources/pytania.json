@@ -1,13 +1,112 @@
 [
-	{
-		"text": "Kto zjadl obiad?",
-		"answers": [
-			{"text" : "Pies", "points": 28},
-			{"text" : "Kot", "points": 27},
-			{"text" : "Slon", "points": 25},
-			{"text" : "Zyrafa", "points": 6},
-			{"text" : "Mastodont", "points": -9},
-			{"text" : "Surgoatka", "points": 0}
-		]
-	}
+    {
+        "text": "Kto zjadł śniadanie?",
+        "answers": [
+            {"text": "Pies", "points": 28},
+            {"text": "Kot", "points": 27},
+            {"text": "Słoń", "points": 25},
+            {"text": "Żyrafa", "points": 6},
+            {"text": "Mastodont", "points": 4},
+            {"text": "Surgoatka", "points": 0}
+        ]
+    },
+    {
+        "text": "Kto zjadł obiad?",
+        "answers": [
+            {"text": "Syn", "points": 28},
+            {"text": "Wuj", "points": 27},
+            {"text": "Małpuszka", "points": 25},
+            {"text": "Grizzly", "points": 6},
+            {"text": "Cross", "points": 3},
+            {"text": "Quad", "points": 0}
+        ]
+    },
+    {
+        "text": "Kto zjadł kolację?",
+        "answers": [
+            {"text": "Pies", "points": 28},
+            {"text": "Kot", "points": 27},
+            {"text": "Słoń", "points": 25},
+            {"text": "Arbuzik", "points": 6},
+            {"text": "Mastodont", "points": 5},
+            {"text": "Surgoatka", "points": 0}
+        ]
+    },
+    {
+        "text": "Kto prowadzi samochód?",
+        "answers": [
+            {"text": "Ojciec", "points": 30},
+            {"text": "Matka", "points": 20},
+            {"text": "Dziadek", "points": 15},
+            {"text": "Sąsiad", "points": 10},
+            {"text": "Robot", "points": 5},
+            {"text": "Pustak", "points": 1}
+        ]
+    },
+    {
+        "text": "Co masz w lodówce?",
+        "answers": [
+            {"text": "Mleko", "points": 30},
+            {"text": "Ser", "points": 20},
+            {"text": "Jajka", "points": 15},
+            {"text": "Ketchup", "points": 5},
+            {"text": "Zupa", "points": 3},
+            {"text": "Nietoperz", "points": 3}
+        ]
+    },
+    {
+        "text": "Co kupujesz w sklepie?",
+        "answers": [
+            {"text": "Chleb", "points": 25},
+            {"text": "Mleko", "points": 20},
+            {"text": "Cukier", "points": 15},
+            {"text": "Masło", "points": 10},
+            {"text": "Wiertarkę", "points": 2},
+            {"text": "Kosiarkę", "points": 1}
+        ]
+    },
+    {
+        "text": "Co robisz w wolnym czasie?",
+        "answers": [
+            {"text": "Czytam książki", "points": 30},
+            {"text": "Gram w gry", "points": 25},
+            {"text": "Spaceruję", "points": 20},
+            {"text": "Śpię", "points": 10},
+            {"text": "Patrzę w sufit", "points": 2},
+            {"text": "Obieram ziemniaki", "points": 1}
+        ]
+    },
+    {
+        "text": "Czego nie zabierzesz na bezludną wyspę?",
+        "answers": [
+            {"text": "Żelazka", "points": 30},
+            {"text": "Telewizora", "points": 20},
+            {"text": "Pralki", "points": 15},
+            {"text": "Szafy", "points": 9},
+            {"text": "Psa", "points": 4},
+            {"text": "Wody", "points": 1}
+        ]
+    },
+    {
+        "text": "Czego unikasz w pracy?",
+        "answers": [
+            {"text": "Szefa", "points": 35},
+            {"text": "Deadline'u", "points": 30},
+            {"text": "Spotkań", "points": 25},
+            {"text": "Małpy", "points": 5},
+            {"text": "Kawy", "points": 2},
+            {"text": "Leniwego kolegi", "points": 1}
+        ]
+    },
+    {
+        "text": "Kto spóźnia się do szkoły?",
+        "answers": [
+            {"text": "Uczeń", "points": 30},
+            {"text": "Nauczyciel", "points": 20},
+            {"text": "Woźny", "points": 10},
+            {"text": "Dyrektor", "points": 5},
+            {"text": "Kurier", "points": 4},
+            {"text": "Krowa", "points": 1}
+        ]
+    }
 ]

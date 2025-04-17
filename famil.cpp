@@ -60,17 +60,6 @@ void famil()
 	/* Read data with questions from json file*/
 	
 	auto data = read_question();
-	/*
-	std::cout << "Liczba pytan: " << data.size() << std::endl;
-
-	for (const auto& question : data) {
-		std::cout << "Pytanie: " << question.get_text() << std::endl;
-		for (const auto& answer : question.get_answers()) {
-			std::cout << "Odpowiedz: " << answer.text << ", punkty: " << answer.points << std::endl;
-		}
-	}
-	*/
-	
 	//create_teams();
 
 	Game game(data, "Jedynka", "Dwojka");
