@@ -21,12 +21,18 @@ public:
 	bool is_game_finished();
 	
 	void fast_draw();
+	void reset_round_data();
     void handle_round(Question& question);
-    void handle_guess(Team& curr_team, std::vector<Answer>& answears);
+    void handle_guess(Team* curr_team, std::vector<Answer>& answears);
+	void switch_team();
+	void final_stage();
+
+	void main_menu();
+
 	Question& get_next_question();
+
 	
-	void switch_team(std::vector<Answer>& answears);
-	Team& get_currentTeam();
+	Team* get_currentTeam();
 
 	const void print_teams();
 	const void print_question(const Question& question); // debuging purpose

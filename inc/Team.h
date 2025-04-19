@@ -1,8 +1,8 @@
 class Team {
 private:
 	const std::string m_team_name;
-	uint16_t m_points = 0;
-	uint8_t m_strike = 0;
+	uint16_t m_points;
+	uint8_t m_strike;
 
 
 public:
@@ -16,4 +16,6 @@ public:
 	uint8_t get_strike() const;
 	bool is_max_strike() const;
 	void inc_strike();
+	void reset_strike();
+	void set_last_chance();
 };

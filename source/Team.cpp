@@ -2,7 +2,7 @@
 #include "Team.h"
 #include "famil_types.h"
 
-Team::Team(std::string name) : m_team_name(name) {}
+Team::Team(std::string name) : m_team_name(name) { m_points = 0; m_strike = 0; }
 
 std::string Team::get_name()
 {
@@ -29,6 +29,16 @@ uint8_t Team::get_strike() const
 void Team::inc_strike()
 {
 	this->m_strike++;
+}
+
+void Team::set_last_chance()
+{
+	this->m_strike = LAST_CHANCE;
+}
+
+void Team::reset_strike()
+{
+	this->m_strike = MAX_CHANCE;
 }
 
 bool Team::is_max_strike() const

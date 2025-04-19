@@ -2,6 +2,8 @@
 #include <iostream>
 
 constexpr uint8_t MAX_STRIKE = 3;
+constexpr uint8_t MAX_CHANCE = 0;
+constexpr uint8_t LAST_CHANCE = 2;
 constexpr uint16_t MAX_TEAM_POINTS = 300;
 
 struct Answer {
