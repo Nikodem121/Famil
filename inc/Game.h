@@ -16,7 +16,7 @@ public:
 	Game(const std::vector<Question> questions_m, std::string name_a, std::string name_b);
 
 	void start();
-	bool is_game_finished();
+	bool is_1_stage_finished();
 	void final_stage();
 
 	Question& get_next_question();

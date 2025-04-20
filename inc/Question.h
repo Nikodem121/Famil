@@ -10,7 +10,7 @@ class Question
 
 public:
 	Question(const std::string& m_text, const std::vector<Answer>& m_answers);
-	Question() = default;
+	//Question() = default;
 
 	const std::string& get_text() const;
 

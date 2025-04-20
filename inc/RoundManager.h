@@ -15,8 +15,8 @@ public:
     void fast_draw();
     void switch_team();
     void reset_round_data();
-    Team* get_currentTeam();
-    void handle_round(Question& question);
+    void handle_round();
     void handle_guess(Team* curr_team, std::vector<Answer>& answears);
+    Team* get_currentTeam();
 };
 

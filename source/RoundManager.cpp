@@ -13,7 +13,7 @@ void RoundManager::reset_round_data()
 void RoundManager::fast_draw()
 {
 	char team;
-	std::cout << "Kto byl pierwszy? Team 1 / Team 2\n";
+	std::cout << "Kto byl pierwszy? 1." << m_teamA.get_name() << " / 2." << m_teamA.get_name()<<std::endl;
 	std::cin >> team;
 	m_team_turn = ('1' == team) ? teamA_Turn : teamB_Turn;
 
@@ -35,7 +35,7 @@ Team* RoundManager::get_currentTeam()
 void RoundManager::start()
 {
 	fast_draw();
-	handle_round(m_question);
+	handle_round();
 	reset_round_data();
 }
 
@@ -62,20 +62,20 @@ void RoundManager::handle_guess(Team* curr_team, std::vector<Answer>& answears)
 		answears[idx].revealed = true;
 	}
 }
-void RoundManager::handle_round(Question& question)
+void RoundManager::handle_round()
 {
 	Team* curr_team = get_currentTeam();
-	std::vector<Answer>& answears = question.access_answers();
+	std::vector<Answer>& answears = m_question.access_answers();
 
 	//print_question(question); // debugging
-	std::cout << "Pytanie: " << question.get_text() << std::endl;
+	std::cout << "Pytanie: " << m_question.get_text() << std::endl;
 
-	while ((!curr_team->is_max_strike()) && (!question.all_answers_revealed()))
+	while ((!curr_team->is_max_strike()) && (!m_question.all_answers_revealed()))
 	{
 		handle_guess(curr_team, answears);
 	}
 
-	if (question.all_answers_revealed())
+	if (m_question.all_answers_revealed())
 	{
 		curr_team->add_points(m_round_points);
 	}

@@ -10,7 +10,7 @@ Game::Game(const std::vector<Question> questions, const std::string name_a, cons
 
 void Game::start()
 {
-	while (!is_game_finished())
+	while (!is_1_stage_finished())
 	{
 		Question& q = get_next_question();
 		RoundManager round(q, teamA, teamB);
@@ -21,7 +21,7 @@ void Game::start()
 	std::cout << "Koniec XD\n";
 }
 
-bool Game::is_game_finished()
+bool Game::is_1_stage_finished()
 {
 	if ((teamA.get_points() >= MAX_TEAM_POINTS) || (teamB.get_points() >= MAX_TEAM_POINTS))
 		return true;
@@ -31,7 +31,12 @@ bool Game::is_game_finished()
 
 void Game::final_stage()
 {
+	for (uint8_t i = 0; i < NUM_OF_FINAL_QUESTIONS; i++)
+	{
+		Question& q = get_next_question();
+		// to do
 
+	}
 }
 
 Question& Game::get_next_question()

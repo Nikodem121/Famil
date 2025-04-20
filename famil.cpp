@@ -6,11 +6,11 @@
 
 int main()
 {
-	std::cout << "Hej\n";
-	/* Run Familiada */
-	//create_teams();
+	std::cout << "Yo\n";
 
+	/* Run Familiada */
 	UI ui;
-	ui.main_menu();
+	//ui.main_menu();
+	ui.main_menu_sfml();
 	return 0;
 }
