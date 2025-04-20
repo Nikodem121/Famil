@@ -21,16 +21,18 @@ if(NOT SFML_FOUND)
     FetchContent_Declare(
         sfml
         GIT_REPOSITORY https://github.com/SFML/SFML.git
-        GIT_TAG        2.6.x  # lub inny tag, np. 2.5.1
+        GIT_TAG        2.6.x
     )
 
     FetchContent_MakeAvailable(sfml)
 endif()
 message(${CMAKE_CURRENT_BINARY_DIR}/_deps/sfml-build/lib)
-#add_custom_command(TARGET Famil POST_BUILD
-#    COMMAND ${CMAKE_COMMAND} -E copy_if_different
-#    "${CMAKE_CURRENT_BINARY_DIR}/_deps/sfml-build/lib/sfml-graphics-d-2.dll"
-#    $<TARGET_FILE_DIR:Famil>
-#)
+add_custom_command(TARGET Famil POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different
+    "${CMAKE_CURRENT_BINARY_DIR}/_deps/sfml-build/lib/Debug/sfml-graphics-d-2.dll"
+    "${CMAKE_CURRENT_BINARY_DIR}/_deps/sfml-build/lib/Debug/sfml-system-d-2.dll"
+    "${CMAKE_CURRENT_BINARY_DIR}/_deps/sfml-build/lib/Debug/sfml-window-d-2.dll"
+    $<TARGET_FILE_DIR:Famil>
+)
 
 target_link_libraries(Famil sfml-graphics sfml-window sfml-system)

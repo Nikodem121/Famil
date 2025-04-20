@@ -2,7 +2,7 @@
 #include "Game.h"
 #include <stdexcept>
 
-Game::Game(const std::vector<Question> questions, const std::string name_a, const std::string name_b) : m_questions(questions), teamA(name_a), teamB(name_b)
+Game::Game(std::vector<Question>& questions, const std::string& name_a, const std::string& name_b) : m_questions(questions), m_teamA(name_a), m_teamB(name_b)
 {
 	std::cout << "Witaj w klasie\n";
 	print_teams();
@@ -13,7 +13,7 @@ void Game::start()
 	while (!is_1_stage_finished())
 	{
 		Question& q = get_next_question();
-		RoundManager round(q, teamA, teamB);
+		RoundManager round(q, m_teamA, m_teamB);
 		round.start();
 		print_teams();
 	}
@@ -23,7 +23,7 @@ void Game::start()
 
 bool Game::is_1_stage_finished()
 {
-	if ((teamA.get_points() >= MAX_TEAM_POINTS) || (teamB.get_points() >= MAX_TEAM_POINTS))
+	if ((m_teamA.get_points() >= MAX_TEAM_POINTS) || (m_teamB.get_points() >= MAX_TEAM_POINTS))
 		return true;
 	return false;
 	
@@ -42,22 +42,22 @@ void Game::final_stage()
 Question& Game::get_next_question()
 {
 
-	if (question_index > m_questions.size())
+	if (question_index >= m_questions.size())
 	{
 		throw std::out_of_range("Brak więcej pytan\n");
 	}
 	return m_questions[question_index++];
 }
 
-const void Game::print_teams()
+void Game::print_teams()
 {
-	std::cout << "Druzyna 1: " << teamA.get_name() << std::endl;
-	std::cout << "Punkty: " << teamA.get_points() << std::endl;
-	std::cout << "Druzyna 2: " << teamB.get_name() << std::endl;
-	std::cout << "Punkty: " << teamB.get_points() << std::endl;
+	std::cout << "Druzyna 1: " << m_teamA.get_name() << std::endl;
+	std::cout << "Punkty: " << m_teamA.get_points() << std::endl;
+	std::cout << "Druzyna 2: " << m_teamB.get_name() << std::endl;
+	std::cout << "Punkty: " << m_teamB.get_points() << std::endl;
 }
 
-const void Game::print_question(const Question& question)
+void Game::print_question(const Question& question) const
 {
 	/*
 	for (auto& question : this->questions)

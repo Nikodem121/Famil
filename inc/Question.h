@@ -21,7 +21,7 @@ public:
 
 	//bool reveal_answer(const std::string& guess, int& points_out);
 
-	bool all_answers_revealed();
+	bool all_answers_revealed() const;
 
 
 };

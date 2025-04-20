@@ -15,48 +15,80 @@ std::string UI::create_team() {
     return team_name;
 }
 
-void UI::main_menu_sfml() {
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Familiada - Menu");
+void UI::add_button(const Button& b) 
+{ 
+    buttons.push_back(b); 
+}
 
+void UI::clear_buttons()
+{
+    buttons.clear(); 
+}
+void UI::draw(sf::RenderWindow& win)
+{
+    for (auto& btn : buttons) btn.draw(win);
+}
+
+void UI::main_menu_sfml() {
+    //sf::RenderWindow window(sf::VideoMode(800, 600), "Familiada - Menu");
+    sf::RenderWindow window(sf::VideoMode(1024,1024), "Familiada - Menu");
     sf::Font font;
+
     if (!font.loadFromFile("D:/Projekty/Cpp/Famil/resources/Arial.ttf")) {
-        // Obsługa błędu ładowania czcionki
+        std::cout << "Blad ladowania czcionki!" << std::endl;
         return;
     }
 
-    sf::Text title("=== Familiada ===", font, 50);
-    title.setPosition(150, 100);
+    sf::Texture backgroundTexture;
+    if (!backgroundTexture.loadFromFile("D:/Projekty/Cpp/Famil/resources/background.png")) {
+        std::cout << "Nie udalo sie zaladowac tla!\n";
+    }
+    sf::Sprite background(backgroundTexture);
 
-    sf::Text newGame("1. Nowa Gra", font, 30);
-    newGame.setPosition(150, 200);
+    //Button newGameBtn({ 400, 250 }, { 300, 50 }, "Nowa Gra", font);
+    //Button exitGameBtn({ 400, 330 }, { 300, 50 }, "Wyjscie", font);
 
-    sf::Text exitGame("2. Wyjscie", font, 30);
-    exitGame.setPosition(150, 260);
+    add_button(Button({ 400,250 }, { 300,50 }, "Nowa Gra", font));
+    add_button(Button({ 400,330 }, { 300,50 }, "Wyjście", font));
 
     while (window.isOpen()) {
         sf::Event event;
+        window.clear();
+        window.draw(background);
+
         while (window.pollEvent(event)) {
             if (event.type == sf::Event::Closed)
                 window.close();
 
-            if (event.type == sf::Event::KeyPressed) {
-                if (event.key.code == sf::Keyboard::Num1) {
-                    auto data = read_questions();
-                    Game game(data, create_team(), create_team());
-                    game.start();  // w tym miejscu później możesz też robić osobny SFML loop dla gry
-                }
-                if (event.key.code == sf::Keyboard::Num2) {
-                    window.close();
+            if (event.type == sf::Event::MouseButtonPressed) {
+                for (auto& btn : buttons) {
+                    if (btn.isMouseOver(window)) {
+                        std::string label = btn.getLabel();
+
+                        if (label == "Nowa Gra") {
+                            std::cout << "Start gry!" << std::endl;
+                            std::vector<Question> data = read_questions();
+                            clear_buttons();
+                            Game game(data, create_team(), create_team());
+                            game.start();
+                            window.close();
+                        }
+                        if (label == "Wyjscie") {
+                            std::cout << "Wyjscie z gry!" << std::endl;
+                            window.close();
+                        }
+                    }
                 }
             }
         }
 
-        window.clear(sf::Color(30, 30, 30));
-        window.draw(title);
-        window.draw(newGame);
-        window.draw(exitGame);
+        for (auto& btn : buttons) {
+            btn.draw(window);
+        }
+
         window.display();
     }
+
 }
 
 void UI::main_menu() {

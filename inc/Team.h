@@ -10,7 +10,7 @@ private:
 public:
 	Team(std::string name);
 
-	std::string get_name();
+	const std::string& Team::get_name() const;
 
 	uint16_t get_points();
 	void add_points(const uint8_t added_points);

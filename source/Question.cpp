@@ -30,7 +30,7 @@ void Question::set_data(const std::string& m_text, const std::vector<Answer>& m_
 	answers = m_answers;
 }
 
-bool Question::all_answers_revealed()
+bool Question::all_answers_revealed() const
 {
 	for (auto& ans : answers)
 	{
@@ -69,7 +69,7 @@ std::vector<Question> read_questions()
     }
     catch (nlohmann::json::parse_error& e) {
         std::cerr << "Blad parsowania JSON: " << e.what() << std::endl;
-        return {};
+        return std::vector<Question>{};;
     }
 
     std::vector<Question> questions;

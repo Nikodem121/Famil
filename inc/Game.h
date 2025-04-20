@@ -5,15 +5,15 @@
 
 class Game
 {
-	Team teamA;
-	Team teamB;
+	Team m_teamA;
+	Team m_teamB;
 
-	std::vector<Question> m_questions;
+	std::vector<Question>& m_questions;
 
 	uint8_t question_index = 0;
 
 public:
-	Game(const std::vector<Question> questions_m, std::string name_a, std::string name_b);
+	Game(std::vector<Question>& questions, const std::string& name_a, const std::string& name_b);
 
 	void start();
 	bool is_1_stage_finished();
@@ -22,6 +22,6 @@ public:
 	Question& get_next_question();
 
 
-	const void print_teams();
-	const void print_question(const Question& question); // debuging purpose
+	void print_teams();
+	void print_question(const Question& question) const; // debuging purpose
 };

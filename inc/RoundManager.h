@@ -16,7 +16,7 @@ public:
     void switch_team();
     void reset_round_data();
     void handle_round();
-    void handle_guess(Team* curr_team, std::vector<Answer>& answears);
+    void handle_guess(Team* curr_team, std::vector<Answer>& answers);
     Team* get_currentTeam();
 };
 

@@ -4,7 +4,7 @@
 
 Team::Team(std::string name) : m_team_name(name), m_points(0), m_strike(0) {}
 
-std::string Team::get_name()
+const std::string& Team::get_name() const
 {
 	//std::cout << "Nazwa teamu: " << this->team_name << std::endl;
 	return this->m_team_name;
@@ -43,7 +43,5 @@ void Team::reset_strike()
 
 bool Team::is_max_strike() const
 {
-	if (this->m_strike >= MAX_STRIKE)
-		return true;
-	return false;
+	return m_strike >= MAX_STRIKE;
 }

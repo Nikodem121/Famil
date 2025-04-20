@@ -13,7 +13,7 @@ void RoundManager::reset_round_data()
 void RoundManager::fast_draw()
 {
 	char team;
-	std::cout << "Kto byl pierwszy? 1." << m_teamA.get_name() << " / 2." << m_teamA.get_name()<<std::endl;
+	std::cout << "Kto byl pierwszy? 1." << m_teamA.get_name() << " / 2." << m_teamB.get_name()<<std::endl;
 	std::cin >> team;
 	m_team_turn = ('1' == team) ? teamA_Turn : teamB_Turn;
 
@@ -39,7 +39,7 @@ void RoundManager::start()
 	reset_round_data();
 }
 
-void RoundManager::handle_guess(Team* curr_team, std::vector<Answer>& answears)
+void RoundManager::handle_guess(Team* curr_team, std::vector<Answer>& answers)
 {
 	uint8_t idx = 0;
 	unsigned int idx_temp = 0;
@@ -54,25 +54,25 @@ void RoundManager::handle_guess(Team* curr_team, std::vector<Answer>& answears)
 	}
 	if (decision == 'y')
 	{
-		std::cout << "1-6 - numer odpowiedzi?\n";
+		std::cout << "1-" << answers.size() << " - numer odpowiedzi?\n";
 		std::cin >> idx_temp;
 		idx = static_cast<uint8_t>(idx_temp - 1);
-		//std::cout << "Ile pkt dostaniesz ? ? ? Tyle:" << answears[idx].points << std::endl;
-		m_round_points += answears[idx].points;
-		answears[idx].revealed = true;
+		//std::cout << "Ile pkt dostaniesz ? ? ? Tyle:" << answers[idx].points << std::endl;
+		m_round_points += answers[idx].points;
+		answers[idx].revealed = true;
 	}
 }
 void RoundManager::handle_round()
 {
 	Team* curr_team = get_currentTeam();
-	std::vector<Answer>& answears = m_question.access_answers();
+	std::vector<Answer>& answers = m_question.access_answers();
 
 	//print_question(question); // debugging
 	std::cout << "Pytanie: " << m_question.get_text() << std::endl;
 
 	while ((!curr_team->is_max_strike()) && (!m_question.all_answers_revealed()))
 	{
-		handle_guess(curr_team, answears);
+		handle_guess(curr_team, answers);
 	}
 
 	if (m_question.all_answers_revealed())
@@ -85,7 +85,7 @@ void RoundManager::handle_round()
 
 		curr_team = get_currentTeam();
 		curr_team->set_last_chance();
-		handle_guess(curr_team, answears);
+		handle_guess(curr_team, answers);
 		if (!curr_team->is_max_strike())
 		{
 			curr_team->add_points(m_round_points);
