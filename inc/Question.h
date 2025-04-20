@@ -1,7 +1,7 @@
+#pragma once
 #include <iostream>
 #include <vector>
 #include "famil_types.h"
-
 
 class Question
 {
@@ -25,3 +25,5 @@ public:
 
 
 };
+
+std::vector<Question> read_questions();

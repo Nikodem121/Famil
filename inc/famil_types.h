@@ -13,6 +13,6 @@ struct Answer {
 };
 
 enum TeamTurn {
-	TeamA_Turn = 0u,
-	TeamB_Turn = 1u
+	teamA_Turn = 0u,
+	teamB_Turn = 1u
 };

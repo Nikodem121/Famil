@@ -1,3 +1,5 @@
+#include <string>
+
 class Team {
 private:
 	const std::string m_team_name;

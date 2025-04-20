@@ -1,17 +1,15 @@
-#include "Team.h"
+#pragma once
+
 #include "famil_types.h"
-#include "Question.h"
+#include "RoundManager.h"
 
 class Game
 {
-	Team TeamA;
-	Team TeamB;
+	Team teamA;
+	Team teamB;
 
-	TeamTurn m_team_turn = TeamA_Turn;
+	std::vector<Question> m_questions;
 
-	std::vector<Question> questions;
-
-	uint16_t round_points = 0;
 	uint8_t question_index = 0;
 
 public:
@@ -19,20 +17,10 @@ public:
 
 	void start();
 	bool is_game_finished();
-	
-	void fast_draw();
-	void reset_round_data();
-    void handle_round(Question& question);
-    void handle_guess(Team* curr_team, std::vector<Answer>& answears);
-	void switch_team();
 	void final_stage();
-
-	void main_menu();
 
 	Question& get_next_question();
 
-	
-	Team* get_currentTeam();
 
 	const void print_teams();
 	const void print_question(const Question& question); // debuging purpose

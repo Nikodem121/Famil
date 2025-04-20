@@ -2,7 +2,7 @@
 #include "Team.h"
 #include "famil_types.h"
 
-Team::Team(std::string name) : m_team_name(name) { m_points = 0; m_strike = 0; }
+Team::Team(std::string name) : m_team_name(name), m_points(0), m_strike(0) {}
 
 std::string Team::get_name()
 {
